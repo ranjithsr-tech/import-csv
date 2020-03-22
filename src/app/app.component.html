@@ -1,0 +1,23 @@
+<div id='container'>
+  <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+  <div class='btnContainer'>
+    <button (click)='filteronIssueCount()' *ngIf='records.length'>Filter</button>
+  </div>
+  <table class="excelDataTable" *ngIf="records.length">
+    <thead>
+      <tr>
+        <th>First Name </th>
+        <th>Sur Name </th>
+        <th>Issue Count </th>
+        <th>Date Of Birth </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td> <span>{{record.firstName}}</span> </td>
+        <td> <span>{{record.surName}}</span> </td>
+        <td> <span>{{record.issueCount}}</span> </td>
+        <td> <span>{{record.dob}}</span> </td>
+      </tr>
+    </tbody>
+  </table>
